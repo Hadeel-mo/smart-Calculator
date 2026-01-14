@@ -1,0 +1,179 @@
+:root{
+    --bg-color:#0f172a;
+    --calc-bg:#1e293b;
+    --accent:#38bdf8;
+    --text-primary:#f8fafc;
+    --btn-bg:#334155;
+    --danger:#ef4444;
+}
+
+body{
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator{
+    width: 100%;
+    max-width: 320px;
+    background: var(--calc-bg);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;/*ضروري لضبط موقع السجل ولا يخرج من موقعة*/ 
+    overflow: hidden;
+}
+
+#result{
+    width: 100%;
+    height: 100px;
+    font-size: 40px;
+    text-align: right;
+    margin-bottom: 20px;
+    background: transparent;
+    color: var(--accent);
+   outline: none;
+    border: none;
+ 
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+}
+
+button{
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    background: var(--btn-bg);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+   font-weight: 600;
+   cursor: pointer;
+    transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+button:active{
+    transform: scale(0.95);
+}
+
+button[onclick="appendToScreen"]{
+    background: #1e293b;
+}
+
+button[onclick*="calculate()"]{
+    background: linear-gradient(135deg,#0ea5e9,#2563eb);
+    color: white;
+    grid-column: span 1;
+}
+
+button[onclick*="clearScreen"]{
+   color: var(--danger);
+}
+
+button:hover{
+    filter: brightness(1.2);
+   transform: translateY(-2px);
+}
+
+.top-ops{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    border-bottom: 1px solid #4e6a85;
+    margin-bottom: 15px;
+}
+
+.backspace-btn{
+    background: transparent;
+    color: #74ebd5;
+    font-size: 22px;
+    width: auto;
+    padding: 0 10px;
+}
+
+.special-btn{
+    background: transparent;
+    color: #74ebd5;
+    font-size: 22px;
+    width: auto;
+    padding: 0 10px; 
+}
+
+#advancedPanel{
+    transition: all 0.5s ease;
+}
+.advanced-grid{
+    grid-template-columns: repeat(3,1fr);
+    background: #2c3e50;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.advanced-grid button{
+    background: #f39c12;
+    color: white;
+    font-size: 16px;
+}
+
+.error-glow{
+    border: 2px solid red !important;
+    box-shadow: 0 0 10px red;
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+@keyframes shake{
+    0%{transform: translateX(0);}
+    25%{transform: translateX(5px);}
+    50%{transform: translateX(-5px);}
+    75%{transform: translateX(5px);}
+    100%{transform: translateX(0);}
+}
+
+.history-overlay {
+position: absolute;
+bottom: 0; /* تبدأ من الأسفل */
+left: 0;
+width: 100%;
+height: 75%; /* تغطي منطقة الأزرار فقط وتترك الشاشة ظاهرة */
+background: rgba(26, 26, 46, 0.98); /* لون غامق شفاف قليلاً */
+z-index: 100;
+display: flex;
+flex-direction: column;
+padding: 15px;
+border-radius: 25px ;
+box-sizing: border-box;
+backdrop-filter: blur(10px);
+transition: all 0.4s ease-in-out;
+opacity: 0;
+visibility: hidden;
+transform: translateY(100%);
+}
+
+.history-overlay.active{
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+
+.history-list {
+flex-grow: 1;
+overflow-y: auto;
+text-align: right;
+color: white;
+margin-bottom: 10px;
+}
+
+.history-item { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+.history-res { color: #2ecc71; font-weight: bold; font-size: 1.2em; display: block; }
+.clear-btn,.close-btn{width: 100%; padding: 12px; border: none; cursor: pointer; margin-top: 5px; font-weight: bold;}
+.clear-btn { background: #444; color: white;  margin-bottom: 5px; }
+.close-btn { background: #3498db; color: white;  }

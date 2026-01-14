@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Modern Glass calculator</title>
+</head>
+<body>
+   
+<div class="calculator">
+    <input type="text" id="result" disabled>
+    <div class="top-ops"> 
+        <button class="special-btn" onclick="togglepanel()">📜</button>
+        <button class="special-btn" onclick="showhistory()">🕒</button>
+        <button class="backspace-btn" onclick="backspace()">⌫</button> 
+    </div>
+        <div id="historyPanel" class="history-overlay" >
+            <div id="historyContent" class="history-list"></div>
+            <button class="clear-btn" onclick="clearHistory()">مسح المحفوظات</button>
+            <button class="close-btn" onclick="showhistory()">إغلاق</button>
+        </div>
+    
+    <div class="buttons">
+        <button onclick="clearScreen()">C</button>
+        <button onclick="appendToScreen('7')">7</button>
+        <button onclick="appendToScreen('8')">8</button>
+        <button onclick="appendToScreen('9')">9</button>
+        <button onclick="appendToScreen('/')">/</button>
+        
+        <button onclick="appendToScreen('4')">4</button>
+        <button onclick="appendToScreen('5')">5</button>
+        <button onclick="appendToScreen('6')">6</button>
+
+        <button onclick="appendToScreen('*')">*</button>
+        
+        <button onclick="appendToScreen('1')">1</button>
+        <button onclick="appendToScreen('2')">2</button>
+        <button onclick="appendToScreen('3')">3</button>
+
+        <button onclick="handlebrackets()">()</button>
+        <button onclick="appendToScreen('0')">0</button>
+        <button onclick="appendToScreen('.')">.</button>
+        <button onclick="appendToScreen('%')">%</button>
+        <button onclick="appendToScreen('-')">-</button>
+        <button onclick="appendToScreen('+')">+</button>
+        <button onclick="calculate()">=</button>
+    </div>
+    
+<div id="advancedPanel" style="display: none;" class="buttons advanced-grid">
+    <button onclick="calculateSqrt()">√</button> <button onclick="calculatePower()">x²</button> <button onclick="calculateSin()">sin</button>
+    <button onclick="calculateCos()">cos</button>
+    <button onclick="calculateTan()">tan</button>
+    <button onclick="appendpi('Math.PI')">π</button>
+</div>
+</div>
+</body>
+</html>
