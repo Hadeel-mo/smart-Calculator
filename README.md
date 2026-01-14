@@ -1,2 +1,15 @@
-# smart-Calculator
- sleek, high-performance web calculator featuring advanced scientific functions, real-time history tracking, and full keyboard interaction for a seamless user experience."
+
+# 📱 Smart Calculator with History 🚀
+
+مشروع حاسبة متطور يجمع بين واجهة مستخدم أنيقة (Front-End) ومنطق برمجي قوي (Back-End logic).
+
+### 🌟 المميزات الاحترافية:
+* **نظام السجل:** حفظ العمليات الحسابية تلقائياً في المتصفح عبر `localStorage`.
+* **تفاعلية كاملة:** دعم لوحة المفاتيح والوميض البصري عند الخطأ.
+* **رابط مباشر:** يمكنك تجربة الحاسبة الآن من هنا [إضغط للفتح](https://hadeel-mo.github.io/smart-Calculator/).
+
+---
+
+### 📊 إحصائيات الزوار:
+![Visitor Count](https://profile-counter.glitch.me/Hadeel-mo/count.svg)
+
